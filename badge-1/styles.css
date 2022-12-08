@@ -1,0 +1,71 @@
+html,
+body {
+  height: 100%;
+  font-family: "Euclid Circular A";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #d9d4f4;
+  color: #f9f9f9;
+}
+
+.avatar {
+  position: relative;
+  z-index: -1;
+  width: 100px;
+  aspect-ratio: 1 / 1;
+  background-image: url(avatar.webp);
+  background-size: 160%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 50%;
+}
+
+@keyframes pulse {
+  45% {
+    opacity: 0.6;
+  }
+  80%,
+  100% {
+    opacity: 0;
+    scale: 1.6;
+  }
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  width: 32px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #ec3bcf;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+}
+
+.badge::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -10px;
+  left: 50%;
+  translate: -50% 0;
+  width: 40px;
+  height: 40px;
+  border-radius: inherit;
+  border: 8px solid transparent;
+  border-top-color: #ec3bcf;
+  border-top-style: double;
+  opacity: 0;
+  animation: pulse 1.5s infinite linear both;
+}
